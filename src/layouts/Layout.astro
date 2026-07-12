@@ -34,9 +34,9 @@ const ogImageURL = new URL('/og-image.png', SITE_CONFIG.siteUrl);
     <meta property="og:locale" content="th_TH" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImageURL} />
-    <meta property="og:image:secure_url" content={ogImageURL} />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:image" content={ogImageURL.toString()} />
+    <meta property="og:image:secure_url" content={ogImageURL.toString()} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -49,7 +49,7 @@ const ogImageURL = new URL('/og-image.png', SITE_CONFIG.siteUrl);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image" content={ogImageURL.toString()} />
     <meta
       name="twitter:image:alt"
       content="เปิดรับสมัครสมาชิกฝ่ายวิชาการ MEDCMU69"
