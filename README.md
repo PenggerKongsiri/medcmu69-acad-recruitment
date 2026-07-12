@@ -4,7 +4,7 @@
 พัฒนาด้วย **Astro 5 + TypeScript + Scoped/Plain CSS** เพื่อการแสดงผลที่รวดเร็ว รองรับทุกอุปกรณ์ (Mobile-first Responsive) และผ่านมาตรฐานการเข้าถึง (Accessibility & SEO)
 
 - **Public Site Domain**: https://joinacad.medcmu69.com
-- **Application Form URL**: https://form.medcmu69.com
+- **Application Form URL**: https://acadform.medcmu69.com
 
 ---
 
@@ -15,11 +15,11 @@
 - **ตำแหน่งที่เปิดรับสมัคร 8 ตำแหน่ง (รวม 29 อัตรา)**:
   1. **Academic IT Team** (3 คน)
   2. **Lecture Record Team** (4 คน)
-  3. **Examination Team** (8 คน)
-  4. **Summaries & Materials Team** (4 คน)
+  3. **Examination Team** (6 คน)
+  4. **Summaries & Materials Team** (6 คน)
   5. **Document Team** (3 คน)
-  6. **PR – Arts** (2 คน)
-  7. **PR – Social Media Managers** (3 คน - ผลัดเวรทุกวัน)
+  6. **PR – Arts** (3 คน)
+  7. **PR – Social Media Managers** (2 คน)
   8. **PR – Calendar & Reminders** (2 คน)
 - **ขั้นตอนการสมัคร 5 ขั้นตอน** และ **คุณสมบัติร่วม 6 ข้อ**
 - **คำถามที่พบบ่อย (FAQ)** ครบถ้วนตามระเบียบฝ่ายวิชาการ
@@ -34,13 +34,13 @@
 cp .env.example .env
 ```
 
-แก้ไขค่า **`PUBLIC_APPLICATION_URL`** ในไฟล์ `.env` เมื่อต้องการเชื่อมโยงไปยังแบบฟอร์มรับสมัครจริง (เช่น ลิงก์ Formbricks):
+กำหนดค่า **`PUBLIC_APPLICATION_URL`** ในไฟล์ `.env` เพื่อเชื่อมโยงไปยังแบบฟอร์มรับสมัครจริง:
 
 ```env
-PUBLIC_APPLICATION_URL=https://form.medcmu69.com/s/actual-survey-link
+PUBLIC_APPLICATION_URL=https://acadform.medcmu69.com/s/cmri3v7ub000d01mswvr4ywur
 ```
 
-*หมายเหตุ: หากไม่ได้กำหนดค่า ระบบจะใช้ค่าเริ่มต้น `https://form.medcmu69.com`*
+*หมายเหตุ: หากไม่ได้กำหนดค่า ระบบจะใช้ค่าเริ่มต้น `https://acadform.medcmu69.com/s/cmri3v7ub000d01mswvr4ywur`*
 
 ---
 
@@ -85,7 +85,10 @@ npm run preview
    dist
    ```
 4. **ตั้งค่า Environment Variables ใน Coolify**:
-   - เพิ่มตัวแปร `PUBLIC_APPLICATION_URL` โดยระบุลิงก์แบบฟอร์มรับสมัครจริง
+   - เพิ่มตัวแปร `PUBLIC_APPLICATION_URL`:
+     ```env
+     PUBLIC_APPLICATION_URL=https://acadform.medcmu69.com/s/cmri3v7ub000d01mswvr4ywur
+     ```
 
 ---
 
@@ -99,12 +102,12 @@ medcmu69-acad-recruitment/
 │   └── sitemap-index.xml    # แผนผังเว็บไซต์
 ├── src/
 │   ├── data/
-│   │   └── recruitmentData.ts # แหล่งเก็บข้อมูลหลัก (แก้ไขตำแหน่ง ข้อความ และ FAQ ที่นี่)
+│   │   └── recruitmentData.ts # แหล่งเก็บข้อมูลหลัก
 │   ├── components/          # คอมโพเนนต์ UI (Navbar, Hero, Accordion, FAQ, Footer)
 │   ├── layouts/
 │   │   └── Layout.astro     # โครงสร้างหลักและ SEO Metadata
 │   ├── styles/
-│   │   └── index.css        # ระบบสี ตัวแปร และสไตล์หลัก (Restrained Deep Violet & Navy)
+│   │   └── index.css        # ระบบสี ตัวแปร และสไตล์หลัก
 │   └── pages/
 │       └── index.astro      # หน้าเว็บรับสมัครหลัก (One-page layout)
 ├── astro.config.mjs         # ตั้งค่า Astro Static Output
