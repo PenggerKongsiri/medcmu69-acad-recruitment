@@ -16,10 +16,7 @@ import { SITE_CONFIG } from '../data/recruitmentData';
       </div>
 
       <h1 class="hero-title">
-        <span class="title-sub">
-          <img src="/logo.jpg" alt="MEDCMU69 Academic Team Logo" class="title-sub-logo" />
-          <span>ฝ่ายวิชาการ MEDCMU69</span>
-        </span>
+        <span class="title-sub">ฝ่ายวิชาการ MEDCMU69</span>
         เปิดรับสมัครสมาชิกทีมฝ่ายวิชาการ
       </h1>
 
@@ -193,35 +190,27 @@ import { SITE_CONFIG } from '../data/recruitmentData';
   }
 
   .hero-title {
-    font-size: 2.15rem;
+    font-size: 2.25rem;
     font-weight: 800;
     color: var(--primary);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
     margin-bottom: 1.25rem;
   }
 
   @media (min-width: 768px) {
     .hero-title {
-      font-size: 2.75rem;
+      font-size: 2.85rem;
     }
   }
 
   .title-sub {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 1.125rem;
+    display: block;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--accent);
-    margin-bottom: 0.6rem;
-  }
-
-  .title-sub-logo {
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
   }
 
   .hero-description {
