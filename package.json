@@ -1,0 +1,20 @@
+{
+  "name": "medcmu69-acad-recruitment",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "MEDCMU69 Academic Team Recruitment Website — Faculty of Medicine, Chiang Mai University",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

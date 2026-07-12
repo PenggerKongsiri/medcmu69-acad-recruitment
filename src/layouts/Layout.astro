@@ -1,0 +1,46 @@
+---
+import '../styles/index.css';
+import { SITE_CONFIG } from '../data/recruitmentData';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'ฝ่ายวิชาการ MEDCMU69 | เปิดรับสมัครสมาชิกทีมฝ่ายวิชาการ',
+  description = 'คณะแพทยศาสตร์ มหาวิทยาลัยเชียงใหม่ เปิดรับสมัครสมาชิกทีมฝ่ายวิชาการ MEDCMU69 รวม 8 ตำแหน่ง 29 อัตรา ศึกษารายละเอียดขอบเขตงาน คุณสมบัติ และขั้นตอนการสมัคร'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_CONFIG.siteUrl);
+---
+
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={SITE_CONFIG.orgNameThai} />
+    <meta property="og:locale" content="th_TH" />
+
+    <!-- Analytics Tracking -->
+    <script defer src="https://analytics.fufy.cc/script.js" data-website-id="47aae4e2-f914-403d-bc94-24966b95bbfe"></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

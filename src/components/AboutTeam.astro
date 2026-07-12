@@ -1,0 +1,181 @@
+---
+import { TEAM_COLLABORATION_OVERVIEW } from '../data/recruitmentData';
+---
+
+<section id="overview" class="about-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">โครงสร้างและการทำงานร่วมกัน</span>
+      <h2 class="section-title">โครงสร้างและการทำงานร่วมกันของ 4 ฝ่ายวิชาการ</h2>
+      <p class="section-subtitle">
+        ฝ่ายวิชาการ MEDCMU69 แบ่งการทำงานออกเป็น 4 ฝ่ายหลักอย่างชัดเจน โดยแต่ละฝ่ายมีความเชี่ยวชาญเฉพาะด้านและร่วมกันสนับสนุนเพื่อนร่วมรุ่นทั้ง 69
+      </p>
+    </div>
+
+    <div class="about-grid">
+      {TEAM_COLLABORATION_OVERVIEW.map((group, index) => (
+        <div class="about-card animate-fade-up" style={`animation-delay: ${index * 100}ms;`}>
+          <div class="card-header">
+            <span class="card-num">0{index + 1}</span>
+          </div>
+          <h3 class="card-title">{group.name}</h3>
+          <p class="card-role">{group.role}</p>
+          <p class="card-collab">{group.collaboration}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 5rem 0;
+    background-color: var(--bg-page);
+  }
+
+  .section-header {
+    max-width: 44rem;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: #e0e7ff;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.875rem;
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--text-muted);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .about-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .about-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-num {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: #f1f5f9;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .card-role {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.875rem;
+  }
+
+  .record-notice-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.85rem 1.25rem;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius-md);
+    color: #92400e;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.08);
+  }
+
+  .notice-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .card-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #475569;
+    background: #e2e8f0;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .record-card-highlight {
+    border-color: #f59e0b;
+    background: linear-gradient(180deg, #fffdf7 0%, #ffffff 100%);
+  }
+
+  .record-card-highlight .card-tag {
+    background: #fef3c7;
+    color: #b45309;
+  }
+
+  .card-collab {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+</style>

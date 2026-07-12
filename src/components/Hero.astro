@@ -1,0 +1,294 @@
+---
+import { SITE_CONFIG } from '../data/recruitmentData';
+---
+
+<section class="hero-section">
+  <div class="container hero-grid">
+    <div class="hero-content animate-fade-up">
+      <div class="hero-badge-group">
+        <span class="hero-badge">
+          <span class="badge-dot"></span>
+          คณะแพทยศาสตร์ มช. รุ่นที่ 69
+        </span>
+        <span class="hero-badge badge-accent">
+          เปิดรับรวม {SITE_CONFIG.totalPositionsCount} อัตรา ({SITE_CONFIG.totalRoleTypes} ตำแหน่ง)
+        </span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-sub">ฝ่ายวิชาการ MEDCMU69</span>
+        เปิดรับสมัครสมาชิกทีมฝ่ายวิชาการ
+      </h1>
+
+      <p class="hero-description">
+        ร่วมเป็นกำลังสำคัญในการยกระดับสื่อการเรียนรู้ ระบบคลังข้อมูล และการสนับสนุนทางวิชาการของรุ่น 
+        <strong class="highlight-text">ไม่จำเป็นต้องเชี่ยวชาญทุกโปรแกรมตั้งแต่เริ่มต้น</strong> 
+        เราให้ความสำคัญกับความรับผิดชอบ ความตรงต่อเวลา การทำงานเป็นทีม การสื่อสาร และความพร้อมที่จะเรียนรู้เติบโตร่วมกัน
+      </p>
+
+      <div class="hero-actions">
+        <a href="#apply" class="btn-primary hero-btn">
+          <span>สมัครเลย</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#positions" class="btn-secondary hero-btn">
+          <span>ดูตำแหน่งที่เปิดรับ ({SITE_CONFIG.totalRoleTypes} ทีม)</span>
+        </a>
+      </div>
+
+      <div class="hero-chips">
+        <div class="chip-item">
+          <span class="chip-label">เปิดรับสมัคร</span>
+          <span class="chip-value">{SITE_CONFIG.totalPositionsCount} อัตรา</span>
+        </div>
+        <div class="chip-divider"></div>
+        <div class="chip-item">
+          <span class="chip-label">สายงานที่เลือกได้</span>
+          <span class="chip-value">{SITE_CONFIG.totalRoleTypes} ตำแหน่ง</span>
+        </div>
+        <div class="chip-divider"></div>
+        <div class="chip-item">
+          <span class="chip-label">คุณสมบัติหลัก</span>
+          <span class="chip-value">รับผิดชอบ & พร้อมเรียนรู้</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Abstract Academic & Medical SVG Visual -->
+    <div class="hero-visual animate-fade-up" style="animation-delay: 150ms;">
+      <div class="visual-card">
+        <svg class="academic-svg" viewBox="0 0 480 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Subtle Grid Background -->
+          <defs>
+            <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#E2E8F0" stroke-width="0.7"/>
+            </pattern>
+            <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#3B0764" />
+              <stop offset="50%" stop-color="#1E1B4B" />
+              <stop offset="100%" stop-color="#4F46E5" />
+            </linearGradient>
+            <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="100%" stop-color="#F8FAFC" />
+            </linearGradient>
+          </defs>
+          <rect width="480" height="380" rx="20" fill="url(#grid)" />
+
+          <!-- Central Core Node Shield -->
+          <g transform="translate(180, 130)">
+            <rect width="120" height="120" rx="24" fill="url(#shieldGrad)" />
+            <!-- Academic Book & Medical Shield motif inside central node -->
+            <path d="M60 30C46 30 36 34 36 40V82C36 86 46 90 60 86C74 90 84 86 84 82V40C84 34 74 30 60 30Z" fill="white" fill-opacity="0.12"/>
+            <path d="M60 40C50 40 40 43 40 49V82C40 85 50 87 60 84C70 87 80 85 80 82V49C80 43 70 40 60 40Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="60" y1="40" x2="60" y2="84" stroke="white" stroke-width="3"/>
+            <path d="M60 54V68M53 61H67" stroke="#C7D2FE" stroke-width="3" stroke-linecap="round"/>
+          </g>
+
+          <!-- Connecting Lines -->
+          <path d="M135 114 L195 145" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4 4"/>
+          <path d="M345 114 L285 145" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4 4"/>
+          <path d="M135 265 L195 235" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4 4"/>
+          <path d="M345 265 L285 235" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4 4"/>
+
+          <!-- Node 1: IT Team (Top Left) -->
+          <g transform="translate(15, 50)">
+            <rect width="160" height="64" rx="14" fill="url(#cardGrad)" stroke="#E2E8F0" stroke-width="1.5"/>
+            <circle cx="26" cy="32" r="13" fill="#EEF2FF"/>
+            <path d="M22 32L25 29M25 32L22 35M30 29L27 32" stroke="#4F46E5" stroke-width="1.8" stroke-linecap="round"/>
+            <text x="48" y="28" fill="#1E1B4B" font-size="13" font-weight="800">IT Team</text>
+            <text x="48" y="46" fill="#64748b" font-size="11" font-weight="600">3 Positions</text>
+          </g>
+
+          <!-- Node 2: Lecture Record (Top Right) -->
+          <g transform="translate(305, 50)">
+            <rect width="160" height="64" rx="14" fill="url(#cardGrad)" stroke="#E2E8F0" stroke-width="1.5"/>
+            <circle cx="26" cy="32" r="13" fill="#F3E8FF"/>
+            <circle cx="26" cy="32" r="5" stroke="#3B0764" stroke-width="2"/>
+            <text x="48" y="28" fill="#1E1B4B" font-size="13" font-weight="800">Lecture Record</text>
+            <text x="48" y="46" fill="#64748b" font-size="11" font-weight="600">4 Positions</text>
+          </g>
+
+          <!-- Node 3: Academic Core (Bottom Left) -->
+          <g transform="translate(15, 265)">
+            <rect width="160" height="64" rx="14" fill="url(#cardGrad)" stroke="#E2E8F0" stroke-width="1.5"/>
+            <circle cx="26" cy="32" r="13" fill="#E0E7FF"/>
+            <path d="M21 28H31M21 32H31M21 36H27" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round"/>
+            <text x="48" y="28" fill="#1E1B4B" font-size="13" font-weight="800">Academic Core</text>
+            <text x="48" y="46" fill="#64748b" font-size="10.5" font-weight="600">15 Positions (3 ทีม)</text>
+          </g>
+
+          <!-- Node 4: PR Team (Bottom Right) -->
+          <g transform="translate(305, 265)">
+            <rect width="160" height="64" rx="14" fill="url(#cardGrad)" stroke="#E2E8F0" stroke-width="1.5"/>
+            <circle cx="26" cy="32" r="13" fill="#EEF2FF"/>
+            <path d="M22 35L30 29M22 29H28" stroke="#4F46E5" stroke-width="1.8" stroke-linecap="round"/>
+            <text x="48" y="28" fill="#1E1B4B" font-size="13" font-weight="800">PR Team</text>
+            <text x="48" y="46" fill="#64748b" font-size="10.5" font-weight="600">7 Positions (3 ทีม)</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding: 3.5rem 0 4rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+    }
+  }
+
+  .hero-badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: #f1f5f9;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .badge-accent {
+    background: var(--accent-violet-light);
+    color: var(--accent-violet);
+    border-color: #e9d5ff;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--accent);
+  }
+
+  .hero-title {
+    font-size: 2.15rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 2.75rem;
+    }
+  }
+
+  .title-sub {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.0625rem;
+    color: var(--text-muted);
+    max-width: 38rem;
+    margin-bottom: 2rem;
+  }
+
+  .highlight-text {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .hero-btn {
+      width: auto;
+    }
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .chip-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chip-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+
+  .chip-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .chip-divider {
+    width: 1px;
+    height: 28px;
+    background-color: var(--border-subtle);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .visual-card {
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 1rem;
+  }
+
+  .academic-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

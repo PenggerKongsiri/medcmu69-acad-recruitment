@@ -1,0 +1,296 @@
+---
+import { DEPARTMENTS, POSITIONS } from '../data/recruitmentData';
+---
+
+<section id="positions" class="positions-overview-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">ตำแหน่งที่เปิดรับสมัคร แยกตาม 4 ฝ่ายงานหลัก</span>
+      <h2 class="section-title">ภาพรวม 8 ตำแหน่ง ใน 4 ฝ่ายของบอร์ดวิชาการ</h2>
+      <p class="section-subtitle">
+        คลิกที่การ์ดเพื่อดูรายละเอียดฉบับเต็ม ขอบเขตหน้าที่ และคุณสมบัติของแต่ละทีมในส่วนด้านล่าง
+      </p>
+    </div>
+
+    <div class="departments-wrapper">
+      {DEPARTMENTS.map((dept, deptIdx) => {
+        const deptPositions = POSITIONS.filter(pos => pos.departmentId === dept.id);
+        return (
+          <div class="department-group animate-fade-up" style={`animation-delay: ${deptIdx * 80}ms;`}>
+            <div class="dept-header">
+              <div class="dept-title-box">
+                <span class="dept-num">0{deptIdx + 1}</span>
+                <div>
+                  <h3 class="dept-name-eng">{dept.nameEnglish}</h3>
+                  <p class="dept-name-thai">{dept.nameThai} • เปิดรับรวม <strong>{dept.totalOpenings} อัตรา</strong> ({dept.totalPositions} ตำแหน่ง)</p>
+                </div>
+              </div>
+              <p class="dept-desc">{dept.description}</p>
+            </div>
+
+            <div class="grid-container">
+              {deptPositions.map((pos) => (
+                <a href={`#detail-${pos.id}`} class="overview-card" aria-label={`ดูรายละเอียดตำแหน่ง ${pos.titleThai}`}>
+                  <div class="card-top">
+                    <span class="team-group">{pos.teamGroup}</span>
+                    <span class="openings-pill">{pos.openingsText}</span>
+                  </div>
+
+                  <h4 class="pos-title-thai">{pos.titleThai}</h4>
+                  <p class="pos-title-eng">{pos.titleEnglish}</p>
+
+                  <p class="pos-summary">{pos.summary}</p>
+
+                  <div class="tag-list">
+                    {pos.skillTags.map((tag) => (
+                      <span class="skill-tag">{tag}</span>
+                    ))}
+                  </div>
+
+                  <div class="card-footer">
+                    <span class="more-link">
+                      อ่านรายละเอียดเพิ่มเติม
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.25 10.5L8.75 7L5.25 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .positions-overview-section {
+    padding: 5rem 0 4rem;
+    background-color: var(--bg-subtle);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .section-header {
+    max-width: 44rem;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: #e0e7ff;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.875rem;
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--text-muted);
+  }
+
+  .departments-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .department-group {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (min-width: 768px) {
+    .department-group {
+      padding: 2.5rem 2.25rem;
+    }
+  }
+
+  .dept-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1.75rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  @media (min-width: 768px) {
+    .dept-header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .dept-title-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .dept-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full);
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  .dept-name-eng {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .dept-name-thai {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0.2rem 0 0;
+  }
+
+  .dept-name-thai strong {
+    color: var(--accent);
+  }
+
+  .dept-desc {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    max-width: 28rem;
+    line-height: 1.6;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+  }
+
+  .overview-card {
+    display: flex;
+    flex-direction: column;
+    background: #f8fafc;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .overview-card:hover {
+    transform: translateY(-4px);
+    background: #ffffff;
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .team-group {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .openings-pill {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: #e0e7ff;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+  }
+
+  .pos-title-thai {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .pos-title-eng {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+  }
+
+  .pos-summary {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #334155;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .card-footer {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+</style>

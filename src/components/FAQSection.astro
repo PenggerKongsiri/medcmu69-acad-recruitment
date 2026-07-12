@@ -1,0 +1,182 @@
+---
+import { FAQS } from '../data/recruitmentData';
+---
+
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">คำถามที่พบบ่อย (FAQ)</span>
+      <h2 class="section-title">ข้อสงสัยเกี่ยวกับการสมัครทีมฝ่ายวิชาการ</h2>
+      <p class="section-subtitle">
+        รวบรวมคำถามและข้อควรทราบในการสมัคร หากมีข้อสงสัยเพิ่มเติมสามารถติดต่อสอบถามผ่านบอร์ดชั้นปีได้เสมอ
+      </p>
+    </div>
+
+    <div class="faq-accordion-list">
+      {FAQS.map((faq, index) => (
+        <div class="faq-item">
+          <h3>
+            <button
+              class="faq-trigger"
+              aria-expanded="false"
+              aria-controls={`faq-panel-${index}`}
+              id={`faq-trigger-${index}`}
+            >
+              <span class="faq-question">{faq.question}</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          </h3>
+          <div
+            id={`faq-panel-${index}`}
+            class="faq-panel"
+            role="region"
+            aria-labelledby={`faq-trigger-${index}`}
+            hidden
+          >
+            <p class="faq-answer">{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+  faqTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      const panelId = trigger.getAttribute('aria-controls');
+      if (!panelId) return;
+
+      const panel = document.getElementById(panelId);
+      if (!panel) return;
+
+      trigger.setAttribute('aria-expanded', String(!isExpanded));
+      panel.hidden = isExpanded;
+    });
+  });
+</script>
+
+<style>
+  .faq-section {
+    padding: 5rem 0;
+    background-color: var(--bg-page);
+  }
+
+  .section-header {
+    max-width: 44rem;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: #e0e7ff;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.875rem;
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--text-muted);
+  }
+
+  .faq-accordion-list {
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-fast);
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  .faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color var(--transition-fast);
+  }
+
+  .faq-trigger:hover {
+    background-color: #f8fafc;
+  }
+
+  .faq-question {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.5;
+  }
+
+  .faq-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-full);
+    background: #f1f5f9;
+    color: var(--primary);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+    flex-shrink: 0;
+  }
+
+  .faq-trigger[aria-expanded="true"] .faq-icon {
+    transform: rotate(180deg);
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  .faq-panel {
+    border-top: 1px solid var(--border-subtle);
+    padding: 1.25rem 1.5rem 1.5rem;
+    background: #ffffff;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+</style>
