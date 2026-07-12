@@ -16,7 +16,10 @@ import { SITE_CONFIG } from '../data/recruitmentData';
       </div>
 
       <h1 class="hero-title">
-        <span class="title-sub">ฝ่ายวิชาการ MEDCMU69</span>
+        <span class="title-sub">
+          <img src="/logo.jpg" alt="MEDCMU69 Academic Team Logo" class="title-sub-logo" />
+          <span>ฝ่ายวิชาการ MEDCMU69</span>
+        </span>
         เปิดรับสมัครสมาชิกทีมฝ่ายวิชาการ
       </h1>
 
@@ -74,17 +77,18 @@ import { SITE_CONFIG } from '../data/recruitmentData';
               <stop offset="0%" stop-color="#FFFFFF" />
               <stop offset="100%" stop-color="#F8FAFC" />
             </linearGradient>
+            <clipPath id="centerLogoClip">
+              <circle cx="60" cy="60" r="46" />
+            </clipPath>
           </defs>
           <rect width="480" height="380" rx="20" fill="url(#grid)" />
 
           <!-- Central Core Node Shield -->
           <g transform="translate(180, 130)">
             <rect width="120" height="120" rx="24" fill="url(#shieldGrad)" />
-            <!-- Academic Book & Medical Shield motif inside central node -->
-            <path d="M60 30C46 30 36 34 36 40V82C36 86 46 90 60 86C74 90 84 86 84 82V40C84 34 74 30 60 30Z" fill="white" fill-opacity="0.12"/>
-            <path d="M60 40C50 40 40 43 40 49V82C40 85 50 87 60 84C70 87 80 85 80 82V49C80 43 70 40 60 40Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="60" y1="40" x2="60" y2="84" stroke="white" stroke-width="3"/>
-            <path d="M60 54V68M53 61H67" stroke="#C7D2FE" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="60" cy="60" r="48" fill="white" fill-opacity="0.12" />
+            <image href="/logo.jpg" x="14" y="14" width="92" height="92" clip-path="url(#centerLogoClip)" preserveAspectRatio="xMidYMid slice" />
+            <circle cx="60" cy="60" r="46" stroke="white" stroke-width="2.5" fill="none" />
           </g>
 
           <!-- Connecting Lines -->
@@ -203,11 +207,21 @@ import { SITE_CONFIG } from '../data/recruitmentData';
   }
 
   .title-sub {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .title-sub-logo {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   }
 
   .hero-description {
