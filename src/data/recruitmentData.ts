@@ -44,7 +44,7 @@ export interface TeamGroupOverview {
 }
 
 export const SITE_CONFIG = {
-  applicationUrl: import.meta.env.PUBLIC_APPLICATION_URL || 'https://acadform.medcmu69.com/s/cmri3v7ub000d01mswvr4ywur',
+  applicationUrl: import.meta.env.PUBLIC_APPLICATION_URL || 'https://form.medcmu69.com/forms/acad',
   siteUrl: 'https://joinacad.medcmu69.com',
   orgNameThai: 'ฝ่ายวิชาการ MEDCMU69',
   orgNameEnglish: 'MEDCMU69 Academic Team',
